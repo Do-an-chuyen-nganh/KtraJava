@@ -1,0 +1,37 @@
+CREATE DATABASE QLSanpham
+
+USE [QLSanpham]
+GO
+/****** Object:  Table [dbo].[Account]    Script Date: 04/13/2021 19:39:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SanPham](
+	[MaSP] [char](4) NOT NULL,
+	[TenSP] [nvarchar](20) NULL,
+	[Dongia] [BigInt] NULL,
+	[Maloai] [char](2) NULL,
+ CONSTRAINT [PK_SanPham] PRIMARY KEY CLUSTERED 
+(
+	[MaSP] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+CREATE TABLE [dbo].[LoaiSP](
+	[Maloai] [char](2) NOT NULL,
+	[Tenloai] [nvarchar](20) NULL,
+
+ CONSTRAINT [PK_LoaiSP] PRIMARY KEY CLUSTERED 
+(
+	[Maloai] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+GO
+INSERT [dbo].[SanPham] ([MaSP], [TenSP], [Dongia], [Maloai]) VALUES (N'123', N'Iphone 13', N'2000000', N'1')
+INSERT [dbo].[SanPham] ([MaSP], [TenSP], [Dongia], [Maloai]) VALUES (N'456', N'Laptop ',  N'3000000', N'2')
+INSERT [dbo].[SanPham] ([MaSP], [TenSP], [Dongia], [Maloai]) VALUES (N'789', N'Laptop asus', N'4000000', N'2')
+
+INSERT [dbo].[LoaiSP] ([Maloai], [Tenloai]) VALUES (N'1', N'Dien thoai')
+INSERT [dbo].[LoaiSP] ([Maloai], [Tenloai]) VALUES (N'2', N'LapTop')
